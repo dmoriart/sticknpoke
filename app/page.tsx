@@ -86,15 +86,32 @@ export default function Home() {
 
             {/* HERO SECTION */}
             <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden noise-overlay">
-                {/* Background Image */}
+                {/* Background Media */}
                 <div className="absolute inset-0 z-0">
-                    <Image
-                        src={`/images/${bandData.hero_image}`}
-                        alt={`${bandData.artist_name} band photo`}
-                        fill
-                        className="object-cover brightness-[0.3]"
-                        priority
-                    />
+                    {bandData.hero_video ? (
+                        <>
+                            <video
+                                className="absolute inset-0 w-full h-full object-cover"
+                                autoPlay
+                                muted
+                                loop
+                                playsInline
+                                poster={`/images/${bandData.hero_image}`}
+                            >
+                                <source src={bandData.hero_video} type="video/mp4" />
+                            </video>
+                            {/* Overlay for video */}
+                            <div className="absolute inset-0 bg-black/40"></div>
+                        </>
+                    ) : (
+                        <Image
+                            src={`/images/${bandData.hero_image}`}
+                            alt={bandData.artist_name}
+                            fill
+                            className="object-cover brightness-[0.3]"
+                            priority
+                        />
+                    )}
                 </div>
 
                 {/* Hero Content */}
@@ -235,6 +252,39 @@ export default function Home() {
             {/* TOUR SECTION */}
             {bandData.tour_dates && bandData.tour_dates.length > 0 && (
                 <section id="tour" className="relative bg-rock-black py-20 md:py-32 noise-overlay">
+                    {/* JSON-LD Structured Data for SEO */}
+                    <script
+                        type="application/ld+json"
+                        dangerouslySetInnerHTML={{
+                            __html: JSON.stringify(
+                                bandData.tour_dates.map((show) => ({
+                                    "@context": "https://schema.org",
+                                    "@type": "MusicEvent",
+                                    "name": `${bandData.artist_name} at ${show.venue}`,
+                                    "startDate": `2025-${show.date.replace("Jan", "01").replace("Feb", "02").replace("Mar", "03").replace("Apr", "04").replace("May", "05").replace("Jun", "06").replace("Jul", "07").replace("Aug", "08").replace("Sep", "09").replace("Oct", "10").replace("Nov", "11").replace("Dec", "12").trim()}`,
+                                    "location": {
+                                        "@type": "Place",
+                                        "name": show.venue,
+                                        "address": {
+                                            "@type": "PostalAddress",
+                                            "addressLocality": show.city,
+                                            "addressCountry": "IE"
+                                        }
+                                    },
+                                    "offers": {
+                                        "@type": "Offer",
+                                        "url": show.ticket_link,
+                                        "availability": show.sold_out ? "https://schema.org/SoldOut" : "https://schema.org/InStock"
+                                    },
+                                    "performer": {
+                                        "@type": "MusicGroup",
+                                        "name": bandData.artist_name
+                                    }
+                                }))
+                            ),
+                        }}
+                    />
+
                     <div className="container mx-auto px-6 max-w-5xl">
                         <h2 className="text-5xl md:text-7xl font-display uppercase text-center mb-16 rock-text">
                             Tour Dates
