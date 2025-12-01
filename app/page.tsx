@@ -74,7 +74,7 @@ export default function Home() {
                 {/* Background Image */}
                 <div className="absolute inset-0 z-0">
                     <Image
-                        src="/assets/hero-image.jpg"
+                        src={`/images/${bandData.hero_image}`}
                         alt={`${bandData.artist_name} band photo`}
                         fill
                         className="object-cover brightness-[0.3]"
