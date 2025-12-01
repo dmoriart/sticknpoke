@@ -3,6 +3,7 @@
 import Image from "next/image";
 import bandData from "@/band_data.json";
 import { useState, useEffect } from "react";
+import JoinTheInnerCircle from "@/components/Newsletter/JoinTheInnerCircle";
 
 export default function Home() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -300,6 +301,9 @@ export default function Home() {
                     </div>
                 </section>
             )}
+
+            {/* NEWSLETTER */}
+            <JoinTheInnerCircle />
 
             {/* FOOTER */}
             <footer className="bg-rock-black border-t-4 border-rock-red py-12 text-center">
