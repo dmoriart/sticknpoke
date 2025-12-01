@@ -1,0 +1,26 @@
+{
+    "artist_name": "Stick N' Poke",
+    "genre": "Post-Punk / Indie",
+    "bio": "Stick N' Poke are a four piece, hard rock band from County Wicklow. Established in 2024, the band consists of Tadhg Conway on lead vocals and rhythm guitar, Sam Burke on lead guitar and backing vocals, Darragh Emerson on bass and Zak Hastie on drums.",
+    "spotify_embed_url": "https://open.spotify.com/embed/artist/1RzcU9dwm4kSI9sj9s2ZU3?utm_source=generator",
+    "youtube_video_id": "",
+    "social_links": {
+        "instagram": "https://www.instagram.com/sticknpokeband/",
+        "tiktok": "",
+        "breaking_tunes": "https://hyperfollow.com/StickNPoke"
+    },
+    "tour_dates": [
+        {
+            "date": "Dec 12",
+            "venue": "Whelan's",
+            "city": "Dublin",
+            "ticket_link": "https://whelans.com"
+        },
+        {
+            "date": "Dec 20",
+            "venue": "The Harbour Bar",
+            "city": "Bray",
+            "ticket_link": "https://theharbourbar.ie"
+        }
+    ]
+}
