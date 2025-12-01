@@ -23,5 +23,25 @@
             "city": "Cork",
             "ticket_link": "https://www.ticketmaster.ie"
         }
-    ]
+    ],
+    "merch": {
+        "store_url": "https://thesundayroast.bigcartel.com",
+        "items": [
+            {
+                "name": "Classic Logo Tee",
+                "image": "tshirt-1.jpg",
+                "price": "€25"
+            },
+            {
+                "name": "Tour 2025 Tee",
+                "image": "tshirt-2.jpg",
+                "price": "€25"
+            },
+            {
+                "name": "Band Photo Tee",
+                "image": "tshirt-3.jpg",
+                "price": "€25"
+            }
+        ]
+    }
 }

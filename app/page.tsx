@@ -40,6 +40,11 @@ export default function Home() {
                         <button onClick={() => scrollToSection('listen')} className="text-rock-cream hover:text-rock-red transition-colors uppercase font-bold text-sm hidden md:block">
                             Listen
                         </button>
+                        {bandData.merch && bandData.merch.items && bandData.merch.items.length > 0 && (
+                            <button onClick={() => scrollToSection('merch')} className="text-rock-cream hover:text-rock-red transition-colors uppercase font-bold text-sm hidden md:block">
+                                Merch
+                            </button>
+                        )}
                         {bandData.tour_dates && bandData.tour_dates.length > 0 && (
                             <button onClick={() => scrollToSection('tour')} className="text-rock-cream hover:text-rock-red transition-colors uppercase font-bold text-sm hidden md:block">
                                 Tour
@@ -159,6 +164,59 @@ export default function Home() {
                                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                                 loading="lazy"
                             ></iframe>
+                        </div>
+                    </div>
+                </section>
+            )}
+
+            {/* MERCH SECTION */}
+            {bandData.merch && bandData.merch.items && bandData.merch.items.length > 0 && (
+                <section id="merch" className="relative bg-rock-black py-20 md:py-32 noise-overlay">
+                    <div className="container mx-auto px-6 max-w-6xl">
+                        <h2 className="text-5xl md:text-7xl font-display uppercase text-center mb-16 rock-text">
+                            Merch
+                        </h2>
+
+                        {/* Merch Grid */}
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                            {bandData.merch.items.map((item, index) => (
+                                <a
+                                    key={index}
+                                    href={bandData.merch.store_url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="group"
+                                >
+                                    <div className="gritty-border bg-rock-darkgray p-4 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                                        <div className="relative aspect-square mb-4 overflow-hidden bg-rock-gray">
+                                            <Image
+                                                src={`/images/${item.image}`}
+                                                alt={item.name}
+                                                fill
+                                                className="object-cover group-hover:scale-110 transition-transform duration-300"
+                                            />
+                                        </div>
+                                        <h3 className="text-rock-cream font-bold text-lg mb-2 uppercase tracking-wide">
+                                            {item.name}
+                                        </h3>
+                                        <p className="text-rock-red font-display text-2xl">
+                                            {item.price}
+                                        </p>
+                                    </div>
+                                </a>
+                            ))}
+                        </div>
+
+                        {/* Shop All Button */}
+                        <div className="text-center">
+                            <a
+                                href={bandData.merch.store_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-block px-8 py-4 bg-rock-red hover:bg-opacity-80 transition-all font-bold uppercase text-lg tracking-wider gritty-border"
+                            >
+                                Shop All Merch
+                            </a>
                         </div>
                     </div>
                 </section>
