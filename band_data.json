@@ -15,13 +15,15 @@
             "date": "Jan 15",
             "venue": "The Workman's Club",
             "city": "Dublin",
-            "ticket_link": "https://www.ticketmaster.ie"
+            "ticket_link": "https://www.ticketmaster.ie",
+            "sold_out": true
         },
         {
             "date": "Jan 22",
             "venue": "Cyprus Avenue",
             "city": "Cork",
-            "ticket_link": "https://www.ticketmaster.ie"
+            "ticket_link": "https://www.ticketmaster.ie",
+            "sold_out": false
         }
     ],
     "merch": {

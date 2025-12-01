@@ -37,6 +37,9 @@ export default function Home() {
                         {bandData.artist_name}
                     </button>
                     <div className="flex items-center space-x-6">
+                        <button onClick={() => scrollToSection('home')} className="text-rock-cream hover:text-rock-red transition-colors uppercase font-bold text-sm hidden md:block">
+                            Home
+                        </button>
                         <button onClick={() => scrollToSection('listen')} className="text-rock-cream hover:text-rock-red transition-colors uppercase font-bold text-sm hidden md:block">
                             Listen
                         </button>
@@ -268,14 +271,20 @@ export default function Home() {
                                                 {show.city}
                                             </td>
                                             <td className="p-4 md:p-6 text-right">
-                                                <a
-                                                    href={show.ticket_link}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="inline-block px-4 md:px-6 py-2 md:py-3 bg-rock-red hover:bg-opacity-80 transition-all font-bold uppercase text-xs md:text-sm tracking-wider border-2 border-rock-black"
-                                                >
-                                                    Buy
-                                                </a>
+                                                {show.sold_out ? (
+                                                    <span className="inline-block px-4 md:px-6 py-2 md:py-3 bg-rock-gray text-rock-cream font-bold uppercase text-xs md:text-sm tracking-wider border-2 border-rock-darkgray opacity-60">
+                                                        Sold Out
+                                                    </span>
+                                                ) : (
+                                                    <a
+                                                        href={show.ticket_link}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="inline-block px-4 md:px-6 py-2 md:py-3 bg-rock-red hover:bg-opacity-80 transition-all font-bold uppercase text-xs md:text-sm tracking-wider border-2 border-rock-black"
+                                                    >
+                                                        Buy
+                                                    </a>
+                                                )}
                                             </td>
                                         </tr>
                                     ))}
